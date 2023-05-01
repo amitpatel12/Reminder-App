@@ -1,0 +1,200 @@
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+
+  
+  .login-details{
+    display: flex;
+    /* height: 100%; */
+  }
+  .login .left{
+    width: 50%;
+    /* height: 100%; */
+    /* margin-top: 30px; */
+    /* border-right: 1px solid red; */
+  }
+  
+
+  
+  .login .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login .left img{
+    width: 70%;
+  }
+  
+  .login .right{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #060a23;
+    color: white;
+
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+  }
+  
+  .login .right .email, .login .right .password{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .login .right .inputs input{
+    padding: 10px;
+    width: 250px;
+    /* font-size: 1.1rem; */
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #383a47;
+    background-color: #060a23;
+    outline: none;
+    color: white;
+  }
+  
+  .login .right .inputs input:focus{
+  /* border: 2px solid #571AE8; */
+  }
+  
+  .login-details .right .submit button{
+  padding: 10px 20px;
+  width: 270px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #571AE8;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  }
+  
+  .login-page .welcome{
+  margin-top: -60px;
+  }
+
+  
+  .right .login-register{
+    margin-top: 33px;
+    display: flex;
+    color: rgb(81, 81, 83);
+  }
+
+  .right .login-register a{
+    text-decoration: none;
+  }
+  
+  .right .login-register span{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  .login-page{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ .right-info{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 15px;
+    padding: 50px;
+ }
+  
+.message h1{
+    color: white;
+
+}
+
+.message p{
+    color: white;
+    margin-top: -15px;
+    
+}
+
+.inputs label{
+    color: white;
+    margin-left: 5px;
+    margin-bottom: 6px;
+}
+
+.remember{
+    display: flex;
+    width: 265px;
+
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 15px;
+    color: white;
+
+}
+
+.remember span{
+    margin-left: 10px;
+}
+
+.footer-message{
+    color: rgb(177, 177, 177);
+    font-size: 13px;
+    margin-top: 100px;
+    width: 400px;
+}
+
+.footer-message .footer-message-tag{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 80px;
+    margin-top: 10px;
+}
+
+.left-title{
+    color: white;
+    letter-spacing: 5px;
+    text-align: center;
+}
+.social-media{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    color: white;
+    border-radius: 9px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
+
+  .direct-register h3{
+    margin-top: -30px;
+    text-align: center;
+  }
+
+  .right-message{
+    text-align: center;
+    line-height: 8px;
+    margin-bottom: 20px;
+  }
+
+  .right-message p{
+    font-size: 13px;
+  }

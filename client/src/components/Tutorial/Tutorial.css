@@ -1,0 +1,34 @@
+.tutorial{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tutorial h3{
+    margin: 20px 0;
+}
+
+.tutorial p{
+    margin: 40px 0px;
+    font-size: 1.2rem;
+}
+
+.tutorial .whatsapp-message{
+    color: blue;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.tutorial img{
+    width: 35vw;
+    min-width: 300px;
+}
+
+.done{
+    margin: 30px 0px;
+}
+.tutorial a{
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    color: blue;
+    cursor: pointer;
+}
