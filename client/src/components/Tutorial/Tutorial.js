@@ -17,7 +17,7 @@ const Tutorial = () => {
         <img src={whatsapp_success} alt = 'success message'/>
         <h3>Now you are ready to add Reminder</h3>
         <div className='done'>
-        <Link to='/'>Done</Link>
+        <Link to='/dashboard'>Done</Link>
         </div>
         
       </div>

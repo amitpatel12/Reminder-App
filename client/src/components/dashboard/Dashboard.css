@@ -5,6 +5,8 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    /* overflow: auto; */
+    
   }
   
   .homepage {
@@ -32,7 +34,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     background: white;
-    position: relative
+    position: relative;
   }
   
   .homepage_header > .button {
@@ -67,6 +69,7 @@
   
   .react-datetime-picker  {
     width: 100% !important;
+    /* overflow: auto !important; */
   
   }
   
@@ -118,8 +121,4 @@
     
   }
 
-  @media screen and (max-width:800px) {
-    .homepage{
-      padding-top: 100px;
-    }
-  }
+  

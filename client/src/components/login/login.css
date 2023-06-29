@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    overflow-x: hidden;
   }
 
   
@@ -11,20 +12,22 @@
     display: flex;
     height: 100%;
   }
+
   .login .left{
     width: 50%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../Images/background.jpg');
+    background-size: cover;
+    background-position: center;
     /* margin-top: 30px; */
     /* border-right: 1px solid red; */
   }
   
 
-  
-  .login .left{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   .login .left img{
     width: 70%;
   }
@@ -36,11 +39,7 @@
     justify-content: center;
     align-items: center;
     background-color: #060a23;
-    /* background: linear-gradient(to bottom right, rgb(255, 253, 125), rgb(151, 250, 184), rgb(253, 209, 158)) */
-    /* background: linear-gradient(90deg, rgba(2,1,22,1) 0%, rgba(44,40,125,1) 34%, rgba(15,130,152,1) 58%, rgba(14,185,226,1) 100%); */
-
-
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+   
   }
   
   .login .right .email, .login .right .password{
@@ -61,16 +60,14 @@
     color: white;
   }
   
-  .login .right .inputs input:focus{
-  /* border: 2px solid #571AE8; */
-  }
+  
   
   .login-details .right .submit button{
   padding: 10px 20px;
-  width: 270px;
+  width: 250px;
   margin-top: 20px;
   cursor: pointer;
-  background-color: #571AE8;
+  /* background-color: #571AE8; */
   color: white;
   border: none;
   border-radius: 15px;
@@ -114,6 +111,8 @@
   
 .message h1{
     color: white;
+    text-align: center;
+    margin: 20px 0;
 
 }
 
@@ -149,6 +148,7 @@
     font-size: 13px;
     margin-top: 100px;
     width: 400px;
+    text-align: center;
 }
 
 .footer-message .footer-message-tag{
@@ -172,4 +172,33 @@
 
 .forgot:hover{
   color: #571AE8;
+}
+
+.error-msg{
+  color: red;
+}
+
+.waiting-msg{
+  color: green;
+}
+
+
+@media screen and (max-width:800px) {
+  .login .login-details .left{
+    display: none;
+    background-image: none;
+    background-color: red;
+    
+
+  }
+
+  .left-title{
+    display: none;
+    width: 0px;
+  }
+
+  .login .login-details .right{
+    width: 100vw;
+  }
+  
 }

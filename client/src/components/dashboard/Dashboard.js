@@ -9,6 +9,7 @@ import { url } from "../../url/url";
 import OpenModal from "../modal/OpenModal";
 import Navbar from "../navbar/Navbar";
 import { useNavigate } from "react-router-dom";
+import SpinnerFetch from "../spinner/SpinnerFetch";
 
 
 function Dashboard() {
@@ -17,26 +18,36 @@ function Dashboard() {
   const [remindAt, setRemindAt] = useState();
   const [reminderList, setReminderList] = useState([]);
   const [change, setChange] = useState(false);
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const user = JSON.parse(localStorage.getItem("user"));
 
   const token = localStorage.getItem("token");
  
+  useEffect(() =>{
+    if(!token){
+      navigate('/')
+    }
+  },[token])
+  
 
   useEffect(() => {
+    setLoading(true)
     const id = user._id
     axios
       .get(`${url}/getAllReminder/${id}`)
-      .then((res) => setReminderList(res.data));
+      .then((res) => { setLoading(false); setReminderList(res.data)});
   }, [change]);
 
-  useEffect(() =>{
-    if(!token){
-      navigate('/login')
+  
+  const addReminder = async (e) => {
+    e.preventDefault()
+
+    if(!title || !remindAt){
+      alert("Please fill required fields")
+      return;
     }
-  },[token])
-  const addReminder = async () => {
     // 
     const data = {
       title: title,
@@ -64,16 +75,24 @@ function Dashboard() {
     {
       <OpenModal/>
     }
+    {
+
+  loading &&
+    <SpinnerFetch loading={loading} setLoading={setLoading}/>
+
+}
     <div className="App">
     
       <div className="homepage">
         <div className="homepage_header">
           <h1>Remind Me 🎗️</h1>
+   
           <input
             type="text"
             placeholder="Reminder Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
 
           <input
@@ -81,6 +100,7 @@ function Dashboard() {
             placeholder="Reminder Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            
           />
 
           <DateTimePicker
@@ -93,11 +113,13 @@ function Dashboard() {
             monthPlaceholder="MM"
             yearPlaceholder="YYYY"
             calendarIcon={null}
+            required
             // clearIcon={null}
           />
-          <div className="button" onClick={addReminder}>
+          <div  className="button" onClick={addReminder}>
             Add Reminder
           </div>
+
         </div>
 
         <div className="homepage_body">

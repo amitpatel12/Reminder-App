@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    
   }
 
   
@@ -65,7 +66,7 @@
   
   .login-details .right .submit button{
   padding: 10px 20px;
-  width: 270px;
+  width: 250px;
   margin-top: 20px;
   cursor: pointer;
   background-color: #571AE8;
@@ -112,7 +113,8 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     border: 1px solid rgb(110, 110, 110);
     border-radius: 15px;
-    padding: 50px;
+    padding: 10px 30px;
+    
  }
   
 .message h1{
@@ -185,16 +187,20 @@
   }
 
   .direct-register h3{
-    margin-top: -30px;
+    /* margin-top: -30px; */
     text-align: center;
   }
 
   .right-message{
     text-align: center;
-    line-height: 8px;
-    margin-bottom: 20px;
+    
+    margin-top: -50px;
+    /* margin-bottom: 20px; */
   }
 
   .right-message p{
     font-size: 13px;
+    margin: 10px 0px;
   }
+
+  
