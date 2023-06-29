@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import background from "../../Images/background.jpg";
+
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import "./login.css";
@@ -11,24 +11,34 @@ const LogIn = ({setUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(false);
+  const [wait, setWait] = useState('');
   const navigate = useNavigate();
 
   const handleData = async (e) => {
     e.preventDefault();
     // console.log(email, password)
     try {
-      
+      if(!email || !password) {
+        alert("Please enter all fields")
+        return;
+      }
+      setWait("Waiting")
       let response = await axios.post(`${url}/login`, {email,password})
       response = response.data;
       
-      console.log(response);
       if(response.token){
         localStorage.setItem('user', JSON.stringify(response.user))
         localStorage.setItem('token', response.token)
-        navigate('/')
+       
+        setWait("success")
+        navigate('/dashboard')
+      }
+      else{
+        setWait(response.msg)
       }
     
     } catch (error) {
+      setWait("Error")
       console.log('Error happing submitting form', error)
     }
   };
@@ -36,7 +46,7 @@ const LogIn = ({setUser}) => {
   return (
     <div className="container login">
       <div className="login-details">
-        <div className="left" style={{backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <div className="left" >
         <div className="left-title">
           <h3>INSPIRED BY THE FUTURE:</h3>
           <h1>THE VISION UI DASHBOARD</h1>
@@ -49,6 +59,9 @@ const LogIn = ({setUser}) => {
           </div>
 
    <form>
+    {
+      wait && <p className={wait === 'Error' ? "error-msg" : 'waiting-msg'} style={{textAlign:'center', fontWeight:'600', paddingTop: '10px'}}>{wait}...</p>
+    }
           <div className="email inputs ">
             <label htmlFor="email">E-Mail</label>
             <input
@@ -97,7 +110,7 @@ const LogIn = ({setUser}) => {
 
           <div className="login-register">
 
-            <Link to="/email">
+            <Link to="/">
               <div className="forgot">Forgot Password?</div>
             </Link>
           </div>

@@ -3,7 +3,7 @@ import './signup.css'
 import background from "../../Images/background.jpg";
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import Switch from "react-switch";
 import axios from 'axios';
@@ -16,11 +16,38 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [check, setCheck] = useState(false);
+  const [wait, setWait] = useState('')
+  const navigate = useNavigate()
 
   const handleData = async (e) => {
     e.preventDefault();
-    const response = await axios.post(`${url}/register`,{name,email,password,phone})
-    console.log(response.data)
+    try {
+      if(!phone || !name || !email || !password){
+        alert("Please enter all fields")
+        return;
+      }
+     
+      setWait("Waiting")
+      let response = await axios.post(`${url}/register`,{name,email,password,phone})
+      response = response.data
+      if(response.success){
+        console.log(response.data)
+        setEmail('')
+        setPassword('')
+        setPhone('')
+        setName('')
+        setWait(response.msg)
+        navigate('/')
+      }
+        else{
+          setWait(response.msg)
+        }
+      
+    } catch (error) {
+      setWait('Error')
+      console.log(error)
+    }
+   
   };
   return (
     <div className="container login">
@@ -35,11 +62,13 @@ const SignUp = () => {
           <div className="right-message">
             <h1>Welcome!</h1>
             <p>Use these awesome forms to login or create new</p>
-            <p>account in your project for me</p>
+            
           </div>
           <div className='right-info'>
             <form>
-           
+            {
+      wait && <p className={wait === 'Error' ? "error-msg" : 'waiting-msg'} style={{textAlign:'center', fontWeight:'600', paddingTop: '10px'}}>{wait}...</p>
+    }
             <div className="email inputs ">
             <label htmlFor="name">Name</label>
             <input
@@ -108,7 +137,7 @@ const SignUp = () => {
           </form>
           <div className="login-register">
             <div>Don't Have Account ?</div>
-            <Link to="/login">
+            <Link to="/">
               <span>SignIn</span>
             </Link>
           </div>
